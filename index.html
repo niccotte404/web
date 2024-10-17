@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, i    nitial-scale=1.0">
+    <title>Бебебе с бабаба - главная</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="page">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__title">Бебебе с бабаба</h1>
+            
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle__label">☰</label>
+
+            <nav class="header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="info.html" class="nav__link">Информация</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="main-content__wrapper">
+        <aside class="sidebar" id="sidebar">
+            <h2>Фильтры</h2>
+
+            <label for="meme-category">Категория мемов:</label>
+            <span class="custom-dropdown">
+                <select id="meme-category" name="meme-category__dropdown">
+                    <option value="all">Все мемы</option>
+                    <option value="popular">Популярные мемы</option>
+                    <option value="new">Новые мемы</option>
+                    <option value="funny">Смешные мемы</option>
+                    <option value="trending">Трендовые мемы</option>
+                </select>
+            </span>
+            
+            <label for="meme-type">Тип мемов:</label>
+            <span class="custom-dropdown">
+                <select id="meme-type" name="meme-type__dropdown">
+                    <option value="image">Картинки</option>
+                    <option value="video">Видео</option>
+                    <option value="gif">GIF</option>
+                </select>
+            </span>
+
+        </aside>
+
+        <main class="main-content">
+            <section class="memes">
+                <div class="container">
+                    <h2 class="memes__title">Популярные мемы</h2>
+                    <div class="memes__grid">
+
+                        <div class="meme-card">
+                            <img src="img/meme1.jpg" alt="Мем 1" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 1</h3>
+                                <p class="meme-card__description">Краткое описание мема 1</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme2.jpg" alt="Мем 2" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 2</h3>
+                                <p class="meme-card__description">Краткое описание мема 2</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme3.jpg" alt="Мем 3" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 3</h3>
+                                <p class="meme-card__description">Краткое описание мема 3</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme4.jpg" alt="Мем 4" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 4</h3>
+                                <p class="mеме-card__description">Краткое описание мема 4</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme5.jpg" alt="Мем 5" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 5</h3>
+                                <p class="mеме-card__description">Краткое описание мема 4</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme6.jpg" alt="Мем 6" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 6</h3>
+                                <p class="mеме-card__description">Краткое описание мема 4</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme7.jpg" alt="Мем 7" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 7</h3>
+                                <p class="mеме-card__description">Краткое описание мема 4</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme8.jpg" alt="Мем 8" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 8</h3>
+                                <p class="mеме-card__description">Краткое описание мема 4</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme9.jpg" alt="Мем 9" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 9</h3>
+                                <p class="mеме-card__description">Краткое описание мема 4</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme1.jpg" alt="Мем 1" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 1</h3>
+                                <p class="meme-card__description">Краткое описание мема 1</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme2.jpg" alt="Мем 2" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 2</h3>
+                                <p class="meme-card__description">Краткое описание мема 2</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme3.jpg" alt="Мем 3" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 3</h3>
+                                <p class="meme-card__description">Краткое описание мема 3</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme4.jpg" alt="Мем 4" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 4</h3>
+                                <p class="mеме-card__description">Краткое описание мема 4</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme5.jpg" alt="Мем 5" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 5</h3>
+                                <p class="mеме-card__description">Краткое описание мема 5</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme6.jpg" alt="Мем 6" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 6</h3>
+                                <p class="mеме-card__description">Краткое описание мема 6</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme7.jpg" alt="Мем 7" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 7</h3>
+                                <p class="mеме-card__description">Краткое описание мема 7</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme8.jpg" alt="Мем 8" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 8</h3>
+                                <p class="mеме-card__description">Краткое описание мема 8</p>
+                            </div>
+                        </div>
+
+                        <div class="meme-card">
+                            <img src="img/meme9.jpg" alt="Мем 9" class="meme-card__image">
+                            <div class="meme-card__info">
+                                <h3 class="meme-card__title">Мем 9</h3>
+                                <p class="mеме-card__description">Краткое описание мема 9</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__contacts">
+                <p>Email: <a href="mailto:info@example.com" class="footer__link">info@example.com</a></p>
+                <p>Телефон: <a href="tel:+71234567890" class="footer__link">+7 (123) 456-78-90</a></p>
+                <p>Адрес: ул. Мемная, 123, г. Санкт-Петербург, Россия</p>
+            </div>
+            <p class="footer__text">&copy; 2024 Все права защищены</p>
+        </div>
+    </footer>
+</footer>
+
+
+</body>
+</html>
