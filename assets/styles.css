@@ -73,6 +73,14 @@ body {
     transition: color 0.3s;
 }
 
+.nav__link_active {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
 .nav__link:hover {
     color: #ffcc00;
 }
