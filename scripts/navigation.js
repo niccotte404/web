@@ -1,5 +1,3 @@
-console.log(document.location.href);
-
 const menuItems = document.getElementsByClassName('nav__link');
 for (let item of menuItems) {
     console.log(item.className);
