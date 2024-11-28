@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задачи</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="scripts/task_tracker.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+</head>
+<body class="page">
+
+<header class="header">
+    <div class="header__container">
+        <h1 class="header__title">Задачи</h1>
+        <nav class="header__nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                <li class="nav__item"><a href="info.html" class="nav__link">Информация</a></li>
+                <li class="nav__item"><a href="task_tracker.html" class="nav__link">Задачи</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <section class="task-tracker">
+        <div class="container">
+            <h2>Добавьте новую задачу</h2>
+            <form id="task-form">
+                <label for="task-name">Название задачи:</label>
+                <input type="text" id="task-name" name="task-name" placeholder="Введите название задачи" required>
+
+                <label for="task-priority">Приоритет:</label>
+                <select id="task-priority" name="task-priority" required>
+                    <option value="low">Низкий</option>
+                    <option value="medium">Средний</option>
+                    <option value="high">Высокий</option>
+                </select>
+
+                <label for="task-deadline">Дедлайн:</label>
+                <input type="date" id="task-deadline" name="task-deadline" required>
+
+                <label for="task-description">Описание:</label>
+                <textarea id="task-description" name="task-description" rows="4" placeholder="Введите описание задачи"></textarea>
+
+                <button type="submit">Добавить задачу</button>
+            </form>
+
+            <div class="task-buttons">
+                <button id="export-tasks">Сохранить</button>
+                <input type="file" id="import-tasks" style="display: none;" accept=".json">
+                <button id="import-tasks-button">Загрузить</button>
+            </div>
+
+            <div id="task-list-container">
+                <h2 id="task-list-title" style="display: none;">Список задач</h2>
+                <div id="task-list"></div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p class="footer__text">&copy; 2024 Все права защищены</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -279,8 +279,12 @@ body {
 /* main content */
 .main-content {
     flex-grow: 1;
+    justify-content: center;
+    align-items: center;
     padding: 40px;
     background-color: #f0f0f0;
+    min-height: calc(100vh - 80px);
+    box-sizing: border-box;
 }
 
 
@@ -430,4 +434,153 @@ body {
 
 .footer__link:hover {
     text-decoration: underline;
+}
+
+/* Форма таск-трекера */
+#task-form {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#task-form label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#task-form input,
+#task-form select,
+#task-form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+#task-form input:focus,
+#task-form select:focus,
+#task-form textarea:focus {
+    outline: none;
+    border-color: #ffcc00;
+    background-color: #fff;
+}
+
+#task-form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#task-form button:hover {
+    background-color: #ffcc00;
+    transform: scale(1.05);
+}
+
+/* Список задач */
+#task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.task-card p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.task-card .priority {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.task-card .priority.low {
+    color: green;
+}
+
+.task-card .priority.medium {
+    color: orange;
+}
+
+.task-card .priority.high {
+    color: red;
+}
+
+.delete-task {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.delete-task:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
+}
+
+.delete-task:active {
+    background-color: #ac2925;
+    transform: scale(1);
+}
+
+.task-buttons {
+    margin-bottom: 20px;
+}
+
+.task-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-right: 10px;
+}
+
+.task-buttons button:hover {
+    background-color: #ffcc00;
+    transform: scale(1.05);
+}
+
+.task-buttons button:active {
+    background-color: #e6b800;
+    transform: scale(1);
 }
