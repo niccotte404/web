@@ -20,10 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const taskName = taskNameInput.value;
+        const taskName = taskNameInput.value.trim();
         const taskPriority = taskPriorityInput.value;
         const taskDeadline = taskDeadlineInput.value;
-        const taskDescription = taskDescriptionInput.value;
+        const taskDescription = taskDescriptionInput.value.trim();
+
+        // Валидация ввода
+        if (!validateTaskName(taskName)) {
+            alert('Название задачи не должно содержать специальных символов и не может быть пустым.');
+            return;
+        }
+
+        if (!validateDate(taskDeadline)) {
+            alert('Пожалуйста, введите корректную дату дедлайна.');
+            return;
+        }
 
         addTask(taskName, taskPriority, taskDeadline, taskDescription);
 
@@ -31,6 +42,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         localStorage.removeItem('taskFormParams');
     });
+
+    function validateTaskName(name) {
+        if (!name || name.length === 0) {
+            return false;
+        }
+        const regex = /^[a-zA-Zа-яА-Я0-9\s.,!?()\-]+$/u;
+        return regex.test(name);
+    }
+
+    function validateDate(dateString) {
+        if (!dateString) {
+            return false;
+        }
+        const currentDate = new Date();
+        const inputDate = new Date(dateString);
+        return inputDate instanceof Date && !isNaN(inputDate) && inputDate >= currentDate.setHours(0,0,0,0);
+    }
 
     function saveFormParams() {
         const formParams = {
@@ -53,16 +81,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addTask(name, priority, deadline, description) {
-        const taskCard = document.createElement('div');
-        taskCard.classList.add('task-card');
+        const template = document.getElementById('task-card-template');
+        const taskCard = template.content.cloneNode(true);
 
-        taskCard.innerHTML = `
-            <h3>${name}</h3>
-            <p class="priority ${priority}">Приоритет: ${priority}</p>
-            <p>Дедлайн: ${deadline}</p>
-            <p>${description}</p>
-            <button class="delete-task">Удалить задачу</button>
-        `;
+        taskCard.querySelector('h3').textContent = name;
+        const priorityElement = taskCard.querySelector('.priority');
+        priorityElement.textContent = `Приоритет: ${priority}`;
+        priorityElement.classList.add(priority);
+
+        taskCard.querySelector('.deadline').textContent = `Дедлайн: ${deadline}`;
+        taskCard.querySelector('.description').textContent = description;
+
+        const deleteButton = taskCard.querySelector('.delete-task');
+        deleteButton.addEventListener('click', () => {
+            deleteButton.closest('.task-card').remove();
+            saveTasksToLocalStorage();
+            toggleTaskListTitle();
+        });
+
+        taskList.appendChild(taskCard);
+
+        toggleTaskListTitle();
+        saveTasksToLocalStorage();
+    }
+
+    function addTask(name, priority, deadline, description) {
+        const template = document.getElementById('task-card-template');
+        const taskCardContent = template.content.cloneNode(true);
+
+        const taskCard = taskCardContent.querySelector('.task-card');
+
+        taskCard.querySelector('h3').textContent = name;
+
+        const priorityElement = taskCard.querySelector('.priority');
+        priorityElement.textContent = `Приоритет: ${priority}`;
+        priorityElement.classList.add(priority);
+
+        const deadlineElement = taskCard.querySelector('.deadline');
+        deadlineElement.textContent = `Дедлайн: ${deadline}`;
+
+        taskCard.querySelector('.description').textContent = description;
 
         const deleteButton = taskCard.querySelector('.delete-task');
         deleteButton.addEventListener('click', () => {
@@ -89,9 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const tasks = [];
         taskList.querySelectorAll('.task-card').forEach(taskCard => {
             const name = taskCard.querySelector('h3').textContent;
-            const priority = taskCard.querySelector('.priority').textContent.replace('Приоритет: ', '');
-            const deadline = taskCard.querySelector('p:nth-of-type(2)').textContent.replace('Дедлайн: ', '');
-            const description = taskCard.querySelector('p:nth-of-type(3)').textContent;
+            const priorityElement = taskCard.querySelector('.priority');
+            const priority = priorityElement.textContent.replace('Приоритет: ', '');
+            const deadline = taskCard.querySelector('.deadline').textContent.replace('Дедлайн: ', '');
+            const description = taskCard.querySelector('.description').textContent;
 
             tasks.push({ name, priority, deadline, description });
         });
