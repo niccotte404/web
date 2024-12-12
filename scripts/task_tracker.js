@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem('taskFormParams');
     });
 
+    // used with outer lib
     function validateTaskName(name) {
         if (!name || name.length === 0) {
             return false;
@@ -51,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                validator.matches(name, /^[a-zA-Zа-яА-Я0-9\s.,!?()\-]+$/u);
     }
 
+    // used with outer lib
     function validateDate(dateString) {
         if (!dateString) {
             return false;
