@@ -1002,10 +1002,9 @@ body {
     left: 10px;
 }
 
-/* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     .swiper-container {
-        height: 300px; /* Сокращение высоты для маленьких экранов */
+        height: 300px;
     }
 
     .swiper-button-next,
