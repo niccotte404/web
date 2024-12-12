@@ -584,3 +584,40 @@ body {
     background-color: #e6b800;
     transform: scale(1);
 }
+
+.centered-block {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.centered-block img {
+    width: 50px;
+    height: 50px;
+}
+
+#tasks-error-container {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.task-card label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.task-card label input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.task-card.completed {
+    background-color: #e0ffe0;
+    text-decoration: line-through;
+}

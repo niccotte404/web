@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Задачи</title>
     <link rel="stylesheet" href="assets/styles.css">
+    
+    <script src="scripts/task_tracker_network.js" defer></script>
     <script src="scripts/task_tracker.js" defer></script>
-    <script src="scripts/navigation.js" defer></script>
 </head>
 <body class="page">
 
@@ -30,27 +31,29 @@
             <form id="task-form">
                 <label for="task-name">Название задачи:</label>
                 <input type="text" id="task-name" name="task-name" placeholder="Введите название задачи" required>
-
+            
                 <label for="task-priority">Приоритет:</label>
                 <select id="task-priority" name="task-priority" required>
                     <option value="low">Низкий</option>
                     <option value="medium">Средний</option>
                     <option value="high">Высокий</option>
                 </select>
-
+            
                 <label for="task-deadline">Дедлайн:</label>
                 <input type="date" id="task-deadline" name="task-deadline" required>
-
+            
                 <label for="task-description">Описание:</label>
                 <textarea id="task-description" name="task-description" rows="4" placeholder="Введите описание задачи"></textarea>
-
+            
                 <button type="submit">Добавить задачу</button>
             </form>
+            
 
             <div class="task-buttons">
                 <button id="export-tasks">Сохранить</button>
                 <input type="file" id="import-tasks" style="display: none;" accept=".json">
                 <button id="import-tasks-button">Загрузить</button>
+                <button id="load-api-tasks">Загрузить задачи из API</button>
             </div>
 
             <div id="task-list-container">
@@ -58,6 +61,13 @@
                 <div id="task-list"></div>
             </div>
 
+            <div id="tasks-preloader" class="centered-block" style="display: none;">
+                <img src="img/loader.gif" alt="Загрузка задач..." />
+            </div>
+
+            <div id="tasks-error-container" class="centered-block" style="display:none;">
+                ⚠ Что-то пошло не так при загрузке задач.
+            </div>
         </div>
     </section>
 </main>
