@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!name || name.length === 0) {
             return false;
         }
-        const regex = /^[a-zA-Zа-яА-Я0-9\s.,!?()\-]+$/u;
-        return regex.test(name);
+        return validator.isLength(name, { min: 1, max: 100 }) && 
+               validator.matches(name, /^[a-zA-Zа-яА-Я0-9\s.,!?()\-]+$/u);
     }
 
     function validateDate(dateString) {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         const currentDate = new Date();
         const inputDate = new Date(dateString);
-        return inputDate instanceof Date && !isNaN(inputDate) && inputDate >= currentDate.setHours(0,0,0,0);
+        return validator.isDate(dateString) && inputDate >= currentDate.setHours(0, 0, 0, 0);
     }
 
     function saveFormParams() {
