@@ -43,23 +43,21 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem('taskFormParams');
     });
 
-    // used with outer lib
     function validateTaskName(name) {
         if (!name || name.length === 0) {
             return false;
         }
-        return validator.isLength(name, { min: 1, max: 100 }) && 
-               validator.matches(name, /^[a-zA-Zа-яА-Я0-9\s.,!?()\-]+$/u);
+        const regex = /^[a-zA-Zа-яА-Я0-9\s.,!?()\-]+$/u;
+        return regex.test(name);
     }
 
-    // used with outer lib
     function validateDate(dateString) {
         if (!dateString) {
             return false;
         }
         const currentDate = new Date();
         const inputDate = new Date(dateString);
-        return validator.isDate(dateString) && inputDate >= currentDate.setHours(0, 0, 0, 0);
+        return inputDate instanceof Date && !isNaN(inputDate) && inputDate >= currentDate.setHours(0,0,0,0);
     }
 
     function saveFormParams() {

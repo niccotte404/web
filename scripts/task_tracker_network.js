@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
     const preloader = document.getElementById('tasks-preloader');
     const errorContainer = document.getElementById('tasks-error-container');
     const taskList = document.getElementById('task-list');
@@ -40,35 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderFetchedTasks(tasks) {
         tasks.forEach(task => {
-            const template = document.getElementById('task-card-template');
-            const taskCardContent = template.content.cloneNode(true);
-            const taskCard = taskCardContent.querySelector('.task-card');
-
-            taskCard.querySelector('h3').textContent = task.title;
-
-            const priorityElement = taskCard.querySelector('.priority');
-            priorityElement.textContent = `Приоритет: ${task.completed ? 'Высокий' : 'Низкий'}`;
-            priorityElement.classList.add(task.completed ? 'high' : 'low');
-
-            const deadlineElement = taskCard.querySelector('.deadline');
-            const randomDays = Math.floor(Math.random() * 30) + 1;
-            const deadlineDate = new Date();
-            deadlineDate.setDate(deadlineDate.getDate() + randomDays);
-            const deadlineStr = deadlineDate.toISOString().split('T')[0];
-            deadlineElement.textContent = `Дедлайн: ${deadlineStr}`;
-
-            const descriptionElement = taskCard.querySelector('.description');
-            descriptionElement.textContent = `Описание задачи: ${task.title}`;
-
-            const deleteButton = taskCard.querySelector('.delete-task');
-            deleteButton.addEventListener('click', () => {
-                taskCard.remove();
-                toggleTaskListTitle();
-            });
-
-            taskList.appendChild(taskCard);
+            createTaskCard(task, taskList, toggleTaskListTitle);
         });
-
         toggleTaskListTitle();
     }
 
